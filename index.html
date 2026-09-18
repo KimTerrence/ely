@@ -1,0 +1,1932 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Two Cats & Bouquet</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #fffaf5 0%,
+            #f9eee6 45%,
+            #f3ddd5 100%
+        );
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.scene {
+    width: min(100vw, 900px);
+    height: min(100vh, 950px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+/* =====================================================
+   FLOWERS
+===================================================== */
+
+.flower {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+
+    animation:
+        flowerSway 5s ease-in-out infinite;
+}
+
+.flower.left {
+    animation-delay: -.8s;
+}
+
+.flower.right {
+    animation-delay: -1.7s;
+}
+
+.flower.center {
+    animation-duration: 5.5s;
+}
+
+@keyframes flowerSway {
+
+    0%,
+    100% {
+        transform:
+            rotate(-1deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(1.5deg)
+            translateY(-3px);
+    }
+}
+
+
+/* =====================================================
+   LEAVES
+===================================================== */
+
+.leaf {
+    transform-box: fill-box;
+    transform-origin: bottom center;
+
+    animation:
+        leafSway 4s ease-in-out infinite;
+}
+
+.leaf:nth-child(2) {
+    animation-delay: -.7s;
+}
+
+.leaf:nth-child(3) {
+    animation-delay: -1.4s;
+}
+
+.leaf:nth-child(4) {
+    animation-delay: -2s;
+}
+
+@keyframes leafSway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+
+/* =====================================================
+   CAT 1 — PEEKING
+===================================================== */
+
+.cat-peeking {
+
+    transform-box: fill-box;
+    transform-origin: center bottom;
+
+    animation:
+        peek 5s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+
+@keyframes peek {
+
+    0%,
+    100% {
+        transform:
+            translateY(9px)
+            rotate(0deg);
+    }
+
+    20% {
+        transform:
+            translateY(0)
+            rotate(-1deg);
+    }
+
+    30% {
+        transform:
+            translateY(-4px)
+            rotate(1deg);
+    }
+
+    45% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    75% {
+        transform:
+            translateY(3px)
+            rotate(-.5deg);
+    }
+}
+
+
+/* =====================================================
+   CAT 1 EARS
+===================================================== */
+
+.ear-left {
+    transform-box: fill-box;
+    transform-origin: bottom right;
+
+    animation:
+        earLeft 6s ease-in-out infinite;
+}
+
+.ear-right {
+    transform-box: fill-box;
+    transform-origin: bottom left;
+
+    animation:
+        earRight 7s ease-in-out infinite;
+}
+
+@keyframes earLeft {
+
+    0%,
+    82%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    86% {
+        transform: rotate(-7deg);
+    }
+
+    90% {
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes earRight {
+
+    0%,
+    45%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    48% {
+        transform: rotate(6deg);
+    }
+
+    52% {
+        transform: rotate(-2deg);
+    }
+}
+
+
+/* =====================================================
+   CAT 2 — BREATHING
+===================================================== */
+
+.cat-sitting {
+
+    transform-box: fill-box;
+    transform-origin: center bottom;
+
+    animation:
+        catBreathing 4.2s ease-in-out infinite;
+}
+
+@keyframes catBreathing {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-3px)
+            scale(1.008);
+    }
+}
+
+
+/* =====================================================
+   CAT 2 HEAD
+===================================================== */
+
+.cat-head {
+
+    transform-box: fill-box;
+    transform-origin: center bottom;
+
+    animation:
+        headTilt 8s ease-in-out infinite;
+}
+
+@keyframes headTilt {
+
+    0%,
+    30%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    60% {
+        transform: rotate(1deg);
+    }
+
+    70% {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* =====================================================
+   CAT 2 TAIL
+===================================================== */
+
+.cat-tail {
+
+    transform-box: fill-box;
+    transform-origin: 0% 80%;
+
+    animation:
+        tailSway 4s ease-in-out infinite;
+}
+
+@keyframes tailSway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(9deg);
+    }
+}
+
+
+/* =====================================================
+   BLINKING
+===================================================== */
+
+.eye {
+
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation:
+        blink 5.5s infinite;
+}
+
+.cat2-eye {
+
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation:
+        blink2 7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    43%,
+    46%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    44%,
+    45% {
+        transform: scaleY(.08);
+    }
+}
+
+@keyframes blink2 {
+
+    0%,
+    60%,
+    63%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    61%,
+    62% {
+        transform: scaleY(.08);
+    }
+}
+
+
+/* =====================================================
+   CAT 2 PAW
+===================================================== */
+
+.paw {
+
+    transform-box: fill-box;
+    transform-origin: center top;
+
+    animation:
+        pawMove 5s ease-in-out infinite;
+}
+
+@keyframes pawMove {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-2deg);
+    }
+}
+
+
+/* =====================================================
+   FLOATING PETALS
+===================================================== */
+
+.petal-float {
+    animation:
+        floatPetal 7s ease-in-out infinite;
+}
+
+.petal-float.two {
+    animation-delay: -3s;
+}
+
+.petal-float.three {
+    animation-delay: -5s;
+}
+
+@keyframes floatPetal {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(0, -20px)
+            rotate(0deg);
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    50% {
+        transform:
+            translate(25px, 35px)
+            rotate(80deg);
+    }
+
+    85% {
+        opacity: .6;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-15px, 85px)
+            rotate(160deg);
+    }
+}
+
+
+/* =====================================================
+   SPARKLES
+===================================================== */
+
+.sparkle {
+
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation:
+        sparkle 3s ease-in-out infinite;
+}
+
+.sparkle:nth-child(2) {
+    animation-delay: -1s;
+}
+
+.sparkle:nth-child(3) {
+    animation-delay: -2s;
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: .25;
+        transform: scale(.65);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   RIBBON
+===================================================== */
+
+.ribbon {
+
+    transform-box: fill-box;
+    transform-origin: center top;
+
+    animation:
+        ribbonMove 4s ease-in-out infinite;
+}
+
+@keyframes ribbonMove {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .scene {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    svg {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 420px) {
+
+    svg {
+        transform: scale(.94);
+    }
+}
+
+@media (max-height: 700px) {
+
+    svg {
+        transform: scale(.84);
+    }
+}
+
+@media (max-height: 580px) {
+
+    svg {
+        transform: scale(.70);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="scene">
+
+<svg
+    viewBox="0 0 800 900"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<rect
+    width="800"
+    height="900"
+    fill="#f8eae0"
+/>
+
+
+<!-- =====================================================
+     WRAPPING PAPER BACK
+===================================================== -->
+
+<path
+    d="
+        M145 270
+        L235 125
+        L630 180
+        L665 420
+        L455 735
+        L230 475
+        Z
+    "
+    fill="#e99378"
+/>
+
+<path
+    d="
+        M180 165
+        L350 250
+        L565 130
+        L650 400
+        L470 680
+        L200 440
+        Z
+    "
+    fill="#fffdf9"
+    opacity=".78"
+/>
+
+<path
+    d="
+        M230 280
+        L550 185
+        L600 415
+        L420 710
+        L270 485
+        Z
+    "
+    fill="#f3c2ad"
+/>
+
+
+<!-- =====================================================
+     STEMS
+===================================================== -->
+
+<g
+    fill="none"
+    stroke="#4f7844"
+    stroke-width="8"
+    stroke-linecap="round"
+>
+
+    <path d="M400 390 Q340 520 350 700"/>
+    <path d="M400 390 Q400 530 390 700"/>
+    <path d="M425 390 Q470 530 450 700"/>
+    <path d="M320 390 Q300 530 330 680"/>
+    <path d="M500 390 Q500 530 470 680"/>
+
+</g>
+
+
+<!-- =====================================================
+     LEAVES
+===================================================== -->
+
+<g>
+
+<g class="leaf">
+
+<path
+    d="
+        M300 410
+        C250 360 190 370 145 410
+        C200 425 245 465 300 445
+        Z
+    "
+    fill="#28602e"
+/>
+
+<path
+    d="M160 408 Q230 410 295 440"
+    fill="none"
+    stroke="#557d46"
+    stroke-width="4"
+/>
+
+</g>
+
+
+<g class="leaf">
+
+<path
+    d="
+        M315 470
+        C260 435 210 460 185 505
+        C235 505 275 530 320 510
+        Z
+    "
+    fill="#3b7134"
+/>
+
+</g>
+
+
+<g class="leaf">
+
+<path
+    d="
+        M505 425
+        C560 370 625 380 675 420
+        C620 435 570 470 505 460
+        Z
+    "
+    fill="#24592b"
+/>
+
+</g>
+
+
+<g class="leaf">
+
+<path
+    d="
+        M495 485
+        C550 450 610 470 635 520
+        C575 515 535 540 495 520
+        Z
+    "
+    fill="#326b31"
+/>
+
+</g>
+
+
+<path
+    d="
+        M365 500
+        C320 535 310 590 345 620
+        C370 580 390 550 390 510
+        Z
+    "
+    fill="#396f36"
+/>
+
+<path
+    d="
+        M450 500
+        C500 535 520 585 490 620
+        C465 580 445 550 440 510
+        Z
+    "
+    fill="#2f6631"
+/>
+
+</g>
+
+
+<!-- =====================================================
+     CENTER FLOWER
+===================================================== -->
+
+<g class="flower center">
+
+<path
+    d="
+        M400 245
+        C370 210 325 225 325 265
+        C285 245 255 275 285 310
+        C245 320 250 365 295 370
+        C275 410 315 430 345 395
+        C360 435 405 425 410 385
+        C440 420 480 395 465 360
+        C510 350 500 305 465 295
+        C485 255 445 235 420 265
+        Z
+    "
+    fill="#df6c85"
+/>
+
+<path
+    d="
+        M400 265
+        C370 240 340 265 350 290
+        C315 275 300 305 325 325
+        C295 340 315 370 345 360
+        C335 395 370 400 390 370
+        C410 405 445 385 430 355
+        C465 365 475 330 445 315
+        C470 285 435 265 415 290
+        Z
+    "
+    fill="#f49aaa"
+/>
+
+<path
+    d="
+        M390 285
+        C365 275 350 300 365 315
+        C340 320 350 345 375 338
+        C365 365 395 370 405 345
+        C420 370 445 350 425 330
+        C450 325 440 295 415 305
+        C415 280 395 275 390 285
+        Z
+    "
+    fill="#ffe0e4"
+/>
+
+<ellipse
+    cx="398"
+    cy="320"
+    rx="28"
+    ry="18"
+    fill="#f4c45a"
+/>
+
+<g fill="#d99438">
+
+    <circle cx="380" cy="315" r="4"/>
+    <circle cx="393" cy="307" r="4"/>
+    <circle cx="408" cy="310" r="4"/>
+    <circle cx="417" cy="320" r="4"/>
+    <circle cx="395" cy="326" r="4"/>
+
+</g>
+
+</g>
+
+
+<!-- =====================================================
+     LEFT FLOWER
+===================================================== -->
+
+<g class="flower left">
+
+<path
+    d="
+        M290 280
+        C255 250 215 270 225 305
+        C185 295 175 335 210 350
+        C180 375 210 410 245 395
+        C250 435 295 425 300 390
+        C335 415 360 375 335 350
+        C370 330 345 290 315 300
+        C320 265 295 255 290 280
+        Z
+    "
+    fill="#df6c85"
+/>
+
+<path
+    d="
+        M285 295
+        C250 280 235 310 250 330
+        C215 320 210 350 240 360
+        C220 380 250 400 270 380
+        C270 410 300 410 305 380
+        C330 395 345 365 320 350
+        C345 330 320 300 300 315
+        C305 295 292 285 285 295
+        Z
+    "
+    fill="#f49aaa"
+/>
+
+<path
+    d="
+        M280 315
+        C255 310 250 335 270 345
+        C245 355 260 375 280 365
+        C280 390 305 385 305 360
+        C325 375 335 350 315 340
+        C330 320 300 310 290 330
+        Z
+    "
+    fill="#ffe1e4"
+/>
+
+<ellipse
+    cx="287"
+    cy="340"
+    rx="23"
+    ry="15"
+    fill="#f2c55b"
+/>
+
+</g>
+
+
+<!-- =====================================================
+     RIGHT FLOWER
+===================================================== -->
+
+<g class="flower right">
+
+<path
+    d="
+        M500 315
+        C465 285 425 305 435 340
+        C395 325 385 365 420 380
+        C390 405 420 440 455 425
+        C460 465 505 450 510 420
+        C545 445 570 405 545 380
+        C580 360 550 320 520 335
+        C525 300 505 295 500 315
+        Z
+    "
+    fill="#df6c85"
+/>
+
+<path
+    d="
+        M495 330
+        C465 310 440 335 455 355
+        C425 345 420 375 445 385
+        C425 405 450 425 475 410
+        C470 440 505 440 510 410
+        C535 430 550 400 530 385
+        C550 360 525 340 510 350
+        C515 330 505 320 495 330
+        Z
+    "
+    fill="#f49aaa"
+/>
+
+<path
+    d="
+        M490 350
+        C465 340 455 365 475 375
+        C450 385 465 405 485 395
+        C480 420 510 415 510 390
+        C530 405 540 380 520 375
+        C535 355 505 345 495 365
+        Z
+    "
+    fill="#ffe1e4"
+/>
+
+<ellipse
+    cx="495"
+    cy="375"
+    rx="23"
+    ry="15"
+    fill="#f3c55a"
+/>
+
+</g>
+
+
+<!-- =====================================================
+     SMALL WHITE FLOWERS
+===================================================== -->
+
+<g>
+
+<g transform="translate(210 280)">
+
+    <g fill="#fffdf9">
+
+        <ellipse cx="0" cy="-22" rx="16" ry="27"/>
+
+        <ellipse
+            cx="21"
+            cy="-7"
+            rx="16"
+            ry="27"
+            transform="rotate(72 21 -7)"
+        />
+
+        <ellipse
+            cx="13"
+            cy="17"
+            rx="16"
+            ry="27"
+            transform="rotate(144 13 17)"
+        />
+
+        <ellipse
+            cx="-13"
+            cy="17"
+            rx="16"
+            ry="27"
+            transform="rotate(216 -13 17)"
+        />
+
+        <ellipse
+            cx="-21"
+            cy="-7"
+            rx="16"
+            ry="27"
+            transform="rotate(288 -21 -7)"
+        />
+
+    </g>
+
+    <circle r="7" fill="#e8dfcc"/>
+
+</g>
+
+
+<g transform="translate(365 210)">
+
+    <g fill="#fffefa">
+
+        <ellipse cx="0" cy="-20" rx="15" ry="25"/>
+
+        <ellipse
+            cx="19"
+            cy="-6"
+            rx="15"
+            ry="25"
+            transform="rotate(72 19 -6)"
+        />
+
+        <ellipse
+            cx="12"
+            cy="16"
+            rx="15"
+            ry="25"
+            transform="rotate(144 12 16)"
+        />
+
+        <ellipse
+            cx="-12"
+            cy="16"
+            rx="15"
+            ry="25"
+            transform="rotate(216 -12 16)"
+        />
+
+        <ellipse
+            cx="-19"
+            cy="-6"
+            rx="15"
+            ry="25"
+            transform="rotate(288 -19 -6)"
+        />
+
+    </g>
+
+    <circle r="7" fill="#e8dfcc"/>
+
+</g>
+
+
+<g transform="translate(575 355)">
+
+    <g fill="#fffefa">
+
+        <ellipse cx="0" cy="-18" rx="14" ry="23"/>
+
+        <ellipse
+            cx="18"
+            cy="-5"
+            rx="14"
+            ry="23"
+            transform="rotate(72 18 -5)"
+        />
+
+        <ellipse
+            cx="11"
+            cy="15"
+            rx="14"
+            ry="23"
+            transform="rotate(144 11 15)"
+        />
+
+        <ellipse
+            cx="-11"
+            cy="15"
+            rx="14"
+            ry="23"
+            transform="rotate(216 -11 15)"
+        />
+
+        <ellipse
+            cx="-18"
+            cy="-5"
+            rx="14"
+            ry="23"
+            transform="rotate(288 -18 -5)"
+        />
+
+    </g>
+
+    <circle r="7" fill="#e8dfcc"/>
+
+</g>
+
+</g>
+
+
+<!-- =====================================================
+     GREEN BUD
+===================================================== -->
+
+<g>
+
+<path
+    d="M510 235 Q520 180 505 145"
+    fill="none"
+    stroke="#557b42"
+    stroke-width="7"
+    stroke-linecap="round"
+/>
+
+<path
+    d="
+        M515 215
+        C475 195 480 160 510 165
+        C535 140 560 170 545 195
+        C570 205 550 235 515 215
+        Z
+    "
+    fill="#82a85d"
+/>
+
+<path
+    d="
+        M510 200
+        C490 180 505 160 520 180
+        C530 155 550 175 535 195
+    "
+    fill="none"
+    stroke="#b0c979"
+    stroke-width="8"
+    stroke-linecap="round"
+/>
+
+</g>
+
+
+<!-- =====================================================
+     CAT 1 — PEEKING FROM BEHIND
+===================================================== -->
+
+<g class="cat-peeking">
+
+
+<!-- ears -->
+
+<g class="ear-left">
+
+<path
+    d="
+        M270 245
+        L280 150
+        L335 215
+        Z
+    "
+    fill="#201e1f"
+/>
+
+<path
+    d="
+        M282 195
+        L286 170
+        L315 211
+        Z
+    "
+    fill="#d98791"
+/>
+
+</g>
+
+
+<g class="ear-right">
+
+<path
+    d="
+        M405 215
+        L455 150
+        L462 245
+        Z
+    "
+    fill="#201e1f"
+/>
+
+<path
+    d="
+        M426 210
+        L450 170
+        L447 218
+        Z
+    "
+    fill="#d98791"
+/>
+
+</g>
+
+
+<!-- head -->
+
+<path
+    d="
+        M270 215
+        C275 170 315 145 370 160
+        C420 145 460 175 465 215
+        C470 265 440 305 370 305
+        C300 305 267 270 270 215
+        Z
+    "
+    fill="#242223"
+/>
+
+
+<!-- cheek highlights -->
+
+<ellipse
+    cx="300"
+    cy="255"
+    rx="24"
+    ry="15"
+    fill="#302d2e"
+    opacity=".7"
+/>
+
+<ellipse
+    cx="442"
+    cy="255"
+    rx="24"
+    ry="15"
+    fill="#302d2e"
+    opacity=".7"
+/>
+
+
+<!-- eyes -->
+
+<g class="eye">
+
+    <ellipse
+        cx="330"
+        cy="220"
+        rx="25"
+        ry="31"
+        fill="#f6c75c"
+    />
+
+    <ellipse
+        cx="418"
+        cy="220"
+        rx="25"
+        ry="31"
+        fill="#f6c75c"
+    />
+
+    <ellipse
+        cx="330"
+        cy="222"
+        rx="7"
+        ry="20"
+        fill="#151314"
+    />
+
+    <ellipse
+        cx="418"
+        cy="222"
+        rx="7"
+        ry="20"
+        fill="#151314"
+    />
+
+    <circle
+        cx="322"
+        cy="211"
+        r="6"
+        fill="white"
+    />
+
+    <circle
+        cx="410"
+        cy="211"
+        r="6"
+        fill="white"
+    />
+
+</g>
+
+
+<!-- eyebrows -->
+
+<path
+    d="M307 188 Q330 175 351 188"
+    fill="none"
+    stroke="#3e393a"
+    stroke-width="5"
+    stroke-linecap="round"
+/>
+
+<path
+    d="M398 188 Q420 175 441 188"
+    fill="none"
+    stroke="#3e393a"
+    stroke-width="5"
+    stroke-linecap="round"
+/>
+
+
+<!-- muzzle -->
+
+<ellipse
+    cx="350"
+    cy="254"
+    rx="28"
+    ry="21"
+    fill="#302d2e"
+/>
+
+<ellipse
+    cx="405"
+    cy="254"
+    rx="28"
+    ry="21"
+    fill="#302d2e"
+/>
+
+
+<!-- nose -->
+
+<path
+    d="
+        M370 244
+        Q378 237 386 244
+        Q378 255 370 244
+        Z
+    "
+    fill="#c57a82"
+/>
+
+
+<!-- mouth -->
+
+<path
+    d="
+        M378 253
+        Q371 264 360 263
+        M378 253
+        Q385 264 396 263
+    "
+    fill="none"
+    stroke="#765054"
+    stroke-width="3"
+    stroke-linecap="round"
+/>
+
+
+<!-- whiskers -->
+
+<g
+    fill="none"
+    stroke="#ddd7d8"
+    stroke-width="2"
+    stroke-linecap="round"
+    opacity=".8"
+>
+
+    <path d="M350 246 L285 230"/>
+    <path d="M350 254 L280 253"/>
+    <path d="M350 261 L290 276"/>
+
+    <path d="M406 246 L470 230"/>
+    <path d="M406 254 L475 253"/>
+    <path d="M406 261 L465 276"/>
+
+</g>
+
+
+<!-- paws -->
+
+<g>
+
+<ellipse
+    cx="315"
+    cy="297"
+    rx="38"
+    ry="27"
+    fill="#292627"
+/>
+
+<ellipse
+    cx="435"
+    cy="297"
+    rx="38"
+    ry="27"
+    fill="#292627"
+/>
+
+<!-- paw toes -->
+
+<path
+    d="
+        M298 298 Q303 309 308 298
+        M312 296 Q317 308 322 296
+
+        M418 296 Q423 308 428 296
+        M432 298 Q437 309 442 298
+    "
+    fill="none"
+    stroke="#454142"
+    stroke-width="3"
+    stroke-linecap="round"
+/>
+
+</g>
+
+</g>
+
+
+<!-- =====================================================
+     CAT 2 — SITTING
+===================================================== -->
+
+<g class="cat-sitting">
+
+
+<!-- tail -->
+
+<path
+    class="cat-tail"
+    d="
+        M655 675
+        C735 690 755 610 710 585
+        C675 565 660 605 690 620
+    "
+    fill="none"
+    stroke="#242122"
+    stroke-width="37"
+    stroke-linecap="round"
+/>
+
+
+<!-- body -->
+
+<path
+    d="
+        M555 600
+        C555 545 590 520 630 520
+        C680 520 705 565 705 630
+        L705 730
+        C680 765 590 765 555 730
+        Z
+    "
+    fill="#252223"
+/>
+
+
+<!-- chest -->
+
+<path
+    d="
+        M600 610
+        C610 645 650 645 665 610
+        C665 670 605 670 600 610
+        Z
+    "
+    fill="#302d2e"
+/>
+
+
+<!-- head group -->
+
+<g class="cat-head">
+
+
+<!-- ears -->
+
+<path
+    d="
+        M555 555
+        L560 490
+        L615 545
+        Z
+    "
+    fill="#242122"
+/>
+
+<path
+    d="
+        M650 545
+        L700 490
+        L705 565
+        Z
+    "
+    fill="#242122"
+/>
+
+
+<!-- inner ears -->
+
+<path
+    d="
+        M570 530
+        L568 510
+        L597 545
+        Z
+    "
+    fill="#d98791"
+/>
+
+<path
+    d="
+        M670 545
+        L696 510
+        L692 552
+        Z
+    "
+    fill="#d98791"
+/>
+
+
+<!-- face -->
+
+<path
+    d="
+        M550 555
+        C550 510 585 480 630 487
+        C675 480 710 515 710 555
+        C710 605 675 630 630 630
+        C585 630 550 605 550 555
+        Z
+    "
+    fill="#252223"
+/>
+
+
+<!-- forehead highlight -->
+
+<path
+    d="
+        M580 520
+        Q620 490 655 510
+    "
+    fill="none"
+    stroke="#3c3839"
+    stroke-width="8"
+    stroke-linecap="round"
+    opacity=".7"
+/>
+
+
+<!-- eyes -->
+
+<g class="cat2-eye">
+
+    <ellipse
+        cx="595"
+        cy="555"
+        rx="20"
+        ry="25"
+        fill="#f5c75c"
+    />
+
+    <ellipse
+        cx="665"
+        cy="555"
+        rx="20"
+        ry="25"
+        fill="#f5c75c"
+    />
+
+    <ellipse
+        cx="595"
+        cy="557"
+        rx="6"
+        ry="17"
+        fill="#151314"
+    />
+
+    <ellipse
+        cx="665"
+        cy="557"
+        rx="6"
+        ry="17"
+        fill="#151314"
+    />
+
+    <circle
+        cx="589"
+        cy="548"
+        r="4.5"
+        fill="white"
+    />
+
+    <circle
+        cx="659"
+        cy="548"
+        r="4.5"
+        fill="white"
+    />
+
+</g>
+
+
+<!-- muzzle -->
+
+<ellipse
+    cx="608"
+    cy="582"
+    rx="22"
+    ry="18"
+    fill="#302d2e"
+/>
+
+<ellipse
+    cx="653"
+    cy="582"
+    rx="22"
+    ry="18"
+    fill="#302d2e"
+/>
+
+
+<!-- nose -->
+
+<path
+    d="
+        M624 575
+        Q632 568 640 575
+        Q632 586 624 575
+        Z
+    "
+    fill="#c57a82"
+/>
+
+
+<!-- mouth -->
+
+<path
+    d="
+        M632 584
+        Q625 594 616 593
+
+        M632 584
+        Q639 594 648 593
+    "
+    fill="none"
+    stroke="#765054"
+    stroke-width="3"
+    stroke-linecap="round"
+/>
+
+
+<!-- whiskers -->
+
+<g
+    fill="none"
+    stroke="#ddd7d8"
+    stroke-width="2"
+    stroke-linecap="round"
+    opacity=".75"
+>
+
+    <path d="M612 580 L555 564"/>
+    <path d="M612 588 L550 590"/>
+    <path d="M652 580 L710 564"/>
+    <path d="M652 588 L715 590"/>
+
+</g>
+
+</g>
+
+
+<!-- paws -->
+
+<g class="paw">
+
+<ellipse
+    cx="590"
+    cy="735"
+    rx="38"
+    ry="18"
+    fill="#211f20"
+/>
+
+<ellipse
+    cx="665"
+    cy="735"
+    rx="38"
+    ry="18"
+    fill="#211f20"
+/>
+
+</g>
+
+
+<!-- toes -->
+
+<g
+    fill="none"
+    stroke="#454142"
+    stroke-width="3"
+    stroke-linecap="round"
+>
+
+    <path d="M575 735 Q580 745 585 735"/>
+    <path d="M590 733 Q595 744 600 733"/>
+
+    <path d="M650 733 Q655 744 660 733"/>
+    <path d="M665 735 Q670 745 675 735"/>
+
+</g>
+
+</g>
+
+
+<!-- =====================================================
+     FRONT WRAPPING PAPER
+===================================================== -->
+
+<path
+    d="
+        M240 455
+        L560 455
+        L455 720
+        L335 720
+        Z
+    "
+    fill="#f2c0aa"
+/>
+
+<path
+    d="
+        M400 470
+        L455 720
+        L420 690
+        L380 470
+        Z
+    "
+    fill="#e4a58f"
+/>
+
+<path
+    d="
+        M270 475
+        L400 475
+        L350 690
+        Z
+    "
+    fill="#f8d0c0"
+    opacity=".7"
+/>
+
+
+<!-- =====================================================
+     RIBBON
+===================================================== -->
+
+<g class="ribbon"
+    fill="none"
+    stroke="#c94e5d"
+    stroke-width="6"
+    stroke-linecap="round"
+>
+
+<path
+    d="
+        M345 690
+        C380 705 425 705 460 690
+    "
+/>
+
+<path
+    d="
+        M350 705
+        C380 720 425 720 455 705
+    "
+/>
+
+<path
+    d="
+        M355 718
+        C385 735 420 735 450 718
+    "
+/>
+
+<!-- left bow -->
+
+<path
+    d="
+        M365 710
+        C325 680 280 695 285 725
+        C290 750 330 745 365 720
+    "
+/>
+
+<!-- right bow -->
+
+<path
+    d="
+        M440 710
+        C480 680 525 700 520 730
+        C515 750 475 745 440 720
+    "
+/>
+
+<!-- tails -->
+
+<path
+    d="
+        M365 725
+        C345 760 350 790 350 820
+    "
+/>
+
+<path
+    d="
+        M440 725
+        C460 760 470 790 480 815
+    "
+/>
+
+</g>
+
+
+<!-- =====================================================
+     FLOATING PETALS
+===================================================== -->
+
+<g class="petal-float">
+
+    <path
+        d="
+            M100 320
+            Q120 305 138 325
+            Q118 348 100 320
+        "
+        fill="#ed8da4"
+    />
+
+</g>
+
+
+<g class="petal-float two">
+
+    <path
+        d="
+            M680 440
+            Q700 425 718 445
+            Q698 468 680 440
+        "
+        fill="#ed8da4"
+    />
+
+</g>
+
+
+<g class="petal-float three">
+
+    <path
+        d="
+            M150 550
+            Q170 535 185 555
+            Q165 575 150 550
+        "
+        fill="#ed8da4"
+    />
+
+</g>
+
+
+<!-- =====================================================
+     SPARKLES
+===================================================== -->
+
+<g fill="white">
+
+<g class="sparkle">
+
+<path
+    d="
+        M105 420
+        L110 445
+        L135 450
+        L110 455
+        L105 480
+        L100 455
+        L75 450
+        L100 445
+        Z
+    "
+/>
+
+</g>
+
+
+<g class="sparkle">
+
+<path
+    d="
+        M690 400
+        L695 420
+        L715 425
+        L695 430
+        L690 450
+        L685 430
+        L665 425
+        L685 420
+        Z
+    "
+/>
+
+</g>
+
+
+<circle
+    class="sparkle"
+    cx="150"
+    cy="520"
+    r="6"
+/>
+
+<circle
+    class="sparkle"
+    cx="650"
+    cy="300"
+    r="6"
+/>
+
+<circle
+    class="sparkle"
+    cx="430"
+    cy="145"
+    r="6"
+/>
+
+</g>
+
+
+</svg>
+
+</div>
+
+</body>
+</html>
+
